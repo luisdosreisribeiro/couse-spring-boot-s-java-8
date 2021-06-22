@@ -24,6 +24,11 @@ public class UserService {
 		return obj.get();
 		
 	}
+
+	public void salvar(User usuario) {
+		repository.save(usuario);
+		
+	}
 	
 
 }

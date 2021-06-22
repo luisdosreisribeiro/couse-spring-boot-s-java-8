@@ -12,30 +12,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.luisribeiro.CursoSpring.entities.User;
-import com.luisribeiro.CursoSpring.service.UserService;
+import com.luisribeiro.CursoSpring.entities.Category;
+import com.luisribeiro.CursoSpring.service.CategoryService;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/categories")
+public class CategoryResource {
 	@Autowired
-	private UserService service;
+	private CategoryService service;
 
 	@GetMapping
 	public ResponseEntity<List> findeAll() {
-		List<User> list = service.findAll();
+		List<Category> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
-		User obj = service.findById(id);
+	public ResponseEntity<Category> findById(@PathVariable Long id) {
+		Category obj = service.findById(id);
 		return ResponseEntity.ok(obj);
 	}
 
 	@PostMapping(value = "/")
 	public ResponseEntity<Void> criarUsuario(
-			@RequestBody User usuario){
+			@RequestBody Category usuario){
 		
 		
 	service.salvar(usuario);
@@ -43,8 +43,4 @@ public class UserResource {
 	}
 }
 
-//	private String name;
-//	private String email;
-//	private String phone;
-//	private String password;
-//}
+
